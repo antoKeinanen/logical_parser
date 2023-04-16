@@ -4,7 +4,7 @@ use std::io;
 use std::io::Write;
 
 fn main() {
-    print!("Anna muutujat> ");
+    print!("Enter variables> ");
     io::stdout().flush().unwrap();
     let mut user_vars = String::new();
     io::stdin()
@@ -13,7 +13,7 @@ fn main() {
     
     let user_vars: Vec<String> = user_vars.split(", ").map(|s:&str| s.to_string().replace("\n", "")).collect();
 
-    print!("Anna lauseke> ");
+    print!("Enter equation> ");
     io::stdout().flush().unwrap();
     let mut user_expr = String::new();
     io::stdin()

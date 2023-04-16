@@ -5,7 +5,7 @@ use std::io;
 use std::io::Write;
 
 fn main() {
-    print!("Anna lauseke> ");
+    print!("Enter equation> ");
     io::stdout().flush().unwrap();
     let mut user_expr = String::new();
     io::stdin()
