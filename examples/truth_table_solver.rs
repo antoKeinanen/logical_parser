@@ -1,0 +1,30 @@
+use logical_solver::ast::has_variable;
+use logical_solver::{parse_expression, evaluate, permutate, solve_truth_table};
+use std::io;
+use std::io::Write;
+
+fn main() {
+    print!("Anna muutujat> ");
+    io::stdout().flush().unwrap();
+    let mut user_vars = String::new();
+    io::stdin()
+        .read_line(&mut user_vars)
+        .expect("Failed to read from stdin");
+    
+    let user_vars: Vec<String> = user_vars.split(", ").map(|s:&str| s.to_string().replace("\n", "")).collect();
+
+    print!("Anna lauseke> ");
+    io::stdout().flush().unwrap();
+    let mut user_expr = String::new();
+    io::stdin()
+        .read_line(&mut user_expr)
+        .expect("Failed to read from stdin");
+
+    let expr = parse_expression(user_expr.as_str()).unwrap(); 
+    println!("{:?}", &expr);
+    println!("{}", has_variable(*expr.clone()));
+    
+    let states = permutate(user_vars);
+    let result = solve_truth_table(expr, states);
+    println!("{:?}", result);
+}

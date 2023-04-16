@@ -1,0 +1,44 @@
+use std::str::FromStr;
+use crate::ast::{Expr, Opcode}; 
+
+grammar;
+
+pub Expr: Box<Expr> = {
+    Expr ExprOp Factor => Box::new(Expr::Op(<>)), 
+    Factor,
+};
+
+SingleOp: Opcode = {
+        "not" => Opcode::Not,
+}
+
+ExprOp: Opcode = {
+    "and" => Opcode::And,
+    "or" => Opcode::Or,
+};
+
+Factor: Box<Expr> = {
+        Factor FactorOp Term => Box::new(Expr::Op(<>)),
+        Term,
+};
+
+FactorOp: Opcode = {
+        "=>" => Opcode::Conditional,
+        "<=>" => Opcode::Biconditional,
+};
+
+Term: Box<Expr> = {
+        Variable => Box::new(<>),
+        Boolean => Box::new(Expr::Boolean(<>)),
+        SingleOp Term => Box::new(Expr::Neg(<>)),
+        "(" <Expr> ")",
+};
+
+Boolean: bool = {
+        r"true|false" => <> == "true", 
+};
+
+
+Variable: Expr = {
+    r"[A-Z]+" => Expr::Variable(<>.to_string()),
+}
