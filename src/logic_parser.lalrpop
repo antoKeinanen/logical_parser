@@ -13,8 +13,8 @@ SingleOp: Opcode = {
 }
 
 ExprOp: Opcode = {
-    "and" => Opcode::And,
-    "or" => Opcode::Or,
+    "=>" => Opcode::Conditional,
+    "<=>" => Opcode::Biconditional,
 };
 
 Factor: Box<Expr> = {
@@ -23,8 +23,8 @@ Factor: Box<Expr> = {
 };
 
 FactorOp: Opcode = {
-        "=>" => Opcode::Conditional,
-        "<=>" => Opcode::Biconditional,
+        "and" => Opcode::And,
+        "or" => Opcode::Or,
 };
 
 Term: Box<Expr> = {
