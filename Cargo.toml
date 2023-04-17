@@ -11,4 +11,3 @@ lalrpop = "0.19.9"
 [dependencies]
 lalrpop-util = {version = "0.19.9", features=["lexer"]}
 regex = "1"
-rayon = "1.7.0"
