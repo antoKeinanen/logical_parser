@@ -13,8 +13,6 @@ fn main() {
         .expect("Failed to read from stdin");
 
     let expr = parse_expression(user_expr.as_str()).unwrap(); 
-    println!("{:?}", &expr);
-    println!("{}", has_variable(*expr.clone()));
     
     let mut state = HashMap::new();
 
