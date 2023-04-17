@@ -23,7 +23,7 @@ fn main() {
     let expr = parse_expression(user_expr.as_str()).unwrap(); 
     println!("Generating permutations...");
     let states = permutate(user_vars);
-    println!("Solving truth table...")
+    println!("Solving truth table...");
     let result = solve_truth_table(expr, states);
     
     println!("{:?}", result);
