@@ -2,6 +2,13 @@
 name = "logical_solver"
 version = "1.0.1"
 edition = "2021"
+description = "Rust based logic parser, evaluator, and truth table constructor!"
+licence = "GPL-3.0"
+homepage = "https://github.com/antoKeinanen/logical_solver-rs"
+repository = "https://github.com/antoKeinanen/logical_solver-rs"
+readme = "readme.md"
+keywords = ["logic", "solver", "evaluator", "truth-table", "parser"]
+categories = ["mathematics", "parsing", "science"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
