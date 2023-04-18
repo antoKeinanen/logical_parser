@@ -1,4 +1,4 @@
-use logical_solver::{parse_expression, evaluate, permutate, solve_truth_table};
+use logical_solver::{parse_expression, permutate, solve_truth_table};
 
 #[test]
 fn test_truth_tables() {

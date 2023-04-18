@@ -1,5 +1,5 @@
-use logical_solver::ast::has_variable;
-use logical_solver::{parse_expression, evaluate, permutate, solve_truth_table};
+
+use logical_solver::{parse_expression, permutate, solve_truth_table};
 use std::io;
 use std::io::Write;
 

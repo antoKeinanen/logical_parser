@@ -1,4 +1,4 @@
-use logical_solver::ast::has_variable;
+
 use logical_solver::{parse_expression, evaluate};
 use std::collections::HashMap;
 use std::io;
@@ -14,7 +14,7 @@ fn main() {
 
     let expr = parse_expression(user_expr.as_str()).unwrap(); 
     
-    let mut state = HashMap::new();
+    let state = HashMap::new();
 
     let result = evaluate(expr, state);
     println!("{}", result);
