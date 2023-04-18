@@ -1,6 +1,6 @@
 [package]
 name = "logical_solver"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 description = "Rust based logic parser, evaluator, and truth table constructor!"
 licence = "GPL-3.0"
