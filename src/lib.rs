@@ -40,10 +40,8 @@ pub fn permutate(vars: Vec<String>) -> Vec<HashMap<String, bool>>{
 
 pub fn evaluate(expr: Box<Expr>, state: HashMap<String, bool>) -> bool{
     match *expr {
-        Expr::Boolean(value) => return value,
-        Expr::Neg(_, operand) => {
-           return !evaluate(operand, state);
-        }
+        Expr::Boolean(value) => value,
+        Expr::Neg(_, operand) => !evaluate(operand, state),
         Expr::Op(left, operator, right) => {
             let left_operand = evaluate(left, state.clone());
             let right_operand = evaluate(right, state.clone());
