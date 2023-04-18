@@ -1,3 +1,5 @@
+use std::fmt;
+
 
 #[derive(Debug, Clone)]
 pub enum Expr {
@@ -14,6 +16,30 @@ pub enum Opcode {
     And,
     Or,
     Not,
+}
+
+
+impl fmt::Display for Expr {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Expr::Boolean(b) => write!(f, "{}", b),
+            Expr::Op(ref l, op, ref r) => write!(f, "({} {} {})", l, op, r),
+            Expr::Neg(op, ref v) => write!(f, "{} {}", op, v),
+            Expr::Variable(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+impl fmt::Display for Opcode {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match *self {
+            Opcode::Conditional => write!(f, "⇒"),
+            Opcode::Biconditional => write!(f, "⇔"),
+            Opcode::And => write!(f, "∧"),
+            Opcode::Or => write!(f, "∨"),
+            Opcode::Not => write!(f, "¬"),
+        }
+    }
 }
 
 impl Expr {
