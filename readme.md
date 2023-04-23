@@ -1,4 +1,7 @@
 # Logical solver
+![Crates.io](https://img.shields.io/crates/v/logical_solver)
+![docs.rs](https://img.shields.io/docsrs/logical_solver)
+
 Logical solver is a rust library for solving and parsing logical equations.
 
 ## Supported operations
